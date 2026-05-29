@@ -65,7 +65,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   projectName: "codec-wiki", // Usually your repo name.
   organizationName: "av1-community-contributors", // Usually your GitHub org/user name.
-  // deploymentBranch: 'deployment',
+  deploymentBranch: "deployment",
   trailingSlash: false,
 
   onBrokenLinks: "throw",

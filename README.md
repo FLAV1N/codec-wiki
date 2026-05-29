@@ -33,5 +33,5 @@ Test release-mode compilation:
 Deploy to `deployment` from latest `main`:
 
 ```bash
-% GIT_USER=<username> DEPLOYMENT_BRANCH=deployment bun run deploy
+% bun run deploy
 ```
