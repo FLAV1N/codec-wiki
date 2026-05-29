@@ -15,12 +15,6 @@ x265 is currently not recommended for lossless encoding. For that niche, x264 is
 
 x265 is available in FFmpeg via `libx265`, to check if you have it, run `ffmpeg -h encoder=libx265`.
 
-# Installation
-
-**Pre-built binary (Recommended):**
-
-- http://msystem.waw.pl/x265/
-
 # Parameters
 
 This section will overview the most important parameters for controlling output and quality in x265. The parameters will be listed in the format used by the standalone x265 binary,
@@ -58,7 +52,7 @@ Below is a list of rough CRF values to experiment with when targeting a specific
 | Medium Quality 	| 24  	| 26   	| 28 	|
 | Low Quality    	| 28  	| 30   	| 32 	|
 
-While not always consistent, x265 aims for an increase of 6 CRF or a decrease of 6 CRF to be a half or doubling of file size, respectively. 
+While not always consistent, x265 aims for an increase of 6 CRF or a decrease of 6 CRF to be a half or doubling of file size, respectively.
 
 CRF is also preferable to other rate control methods due to its consistency in quality and being the most efficient mode of them all.
 
@@ -77,9 +71,9 @@ x265 possesses several threading features that each come with their own upsides 
 ### `--wpp`
 
 `--wpp` or Wavefront Parallel Processing is the default method x265 uses to parallelize encoding first and foremost. With only an efficiency hit of 1-3% of the final encode, it increases threading of x265
-by 3-5x. Unless you're using a tool like Av1an for maximum efficiency encoding, it is always recommended to have this setting on (default). 
+by 3-5x. Unless you're using a tool like Av1an for maximum efficiency encoding, it is always recommended to have this setting on (default).
 
-WPP works by splitting the video frame up into rows where the row is 2 CU, or super blocks in libvpx terms, behind the row above it. This allows the encoder to reference everything allowed by the 
+WPP works by splitting the video frame up into rows where the row is 2 CU, or super blocks in libvpx terms, behind the row above it. This allows the encoder to reference everything allowed by the
 H.265 specification. Due to it not being single threaded, some optimizations cannot be done, resulting in a small efficiency loss.
 
 ### `--frame-threads`
@@ -200,7 +194,7 @@ to back it up.
 `--cutree` and `--no-cutree`
 
 CU-Tree similar to MB-Tree in x264 is a method for the encoder to keep track of what parts of the frame are used or referenced by future frames. In a sense, it's a temporal motion quantizer.
-It has been very common for a long time, all the way back when only x264 existed, for people to disable MB-Tree due to the idea that it removed too much detail or blurred the video. 
+It has been very common for a long time, all the way back when only x264 existed, for people to disable MB-Tree due to the idea that it removed too much detail or blurred the video.
 However, a lot of that blur and detail loss would occur in parts of the frame that viewers would not be able to see clearly due to motion, or in areas that didn't significantly
 contribute to the overall image quality during playback. Both MB-Tree and CU-tree have also gotten a lot better since their original implementation making it almost
 always worse to disable them rather than to keep them enabled.
