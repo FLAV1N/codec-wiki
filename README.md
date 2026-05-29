@@ -1,6 +1,6 @@
 # Codec Wiki
 
-A community maintained wiki for all things encoding.
+A community-maintained wiki for compression tech.
 
 ## Before You Contribute
 
@@ -11,76 +11,27 @@ A community maintained wiki for all things encoding.
    to a point where it is useful to the project. It is perfectly acceptable not
    to get everything right the first time, but always double check your
    contributions for factual correctness.
-3. If you would like, connect with us via our Revolt server located at
-   [rvlt.gg/emxNXv1x](https://rvlt.gg/emxNXv1x). You can ask questions &
-   communicate with other contributors here.
+3. If you would like, connect with us via our
+   [Discord server](https://discord.gg/bbQD5MjDr3). You can ask questions &
+   communicate with other contributors in the `#codec-wiki` channel here.
 
-## Clone & Push Instructions
+## Development
 
-**Make sure to clone from & edit the** `main` **branch only, & push your final
-changes to the** `deployment` **branch according to the instructions below. Also
-be sure to use node 18 LTS, as later versions tend to be troublesome.**
-
-_don't forget to add unimportant files to the .gitignore_
-
-1. Clone from the `main` branch to start to make a contribution:
+Test your changes locally before making a commit:
 
 ```bash
-% git clone git@github.com:av1-community-contributors/codec-wiki.git -b main
+% bun install
+% bun run start
 ```
 
-2. Test your changes locally before making a commit:
+Test release-mode compilation:
 
 ```bash
-% yarn
-% yarn start
+% bun run build
 ```
 
-3. Push changes to `main` branch:
+Deploy to `deployment` from latest `main`:
 
 ```bash
-% git add .
-% git commit -m "Commit Message"
-% git push -u origin main
+% GIT_USER=<username> DEPLOYMENT_BRANCH=deployment bun run deploy
 ```
-
-4. Deploy to `deployment` branch to make live on site:
-
-```bash
-% GIT_USER=<username> DEPLOYMENT_BRANCH=deployment yarn deploy
-```
-
-_Docusaurus Info_
-
-## Website
-
-This website is built using [Docusaurus 3](https://docusaurus.io/), a modern
-static website generator.
-
-### Installation
-
-```
-$ yarn
-```
-
-### Local Development
-
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window.
-Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be
-served using any static contents hosting service.
-
-### Deployment
-
-See initial instructions at the top.
