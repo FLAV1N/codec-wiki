@@ -1,39 +1,16 @@
 import { useState } from 'react';
-import { Flex, Carousel, Image, Card } from 'antd';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 export const CarouselGenerator = ({ imageData, pixelsAbove, pixelsBelow }) => {
-  // Thanks to Nathan Arritt: https://github.com/ant-design/ant-design/issues/12479#issuecomment-1071492637
-  const Arrow = ({ direction, onClick }) => {
-    const isLeft = direction === 'left';
-    const Icon = isLeft ? LeftOutlined : RightOutlined;
-    
-    return (
-      <div
-        onClick={onClick}
-        style={{
-          position: 'absolute',
-          top: '50%',
-          [isLeft ? 'left' : 'right']: '10px',
-          transform: 'translateY(-50%)',
-          zIndex: 10,
-          cursor: 'pointer',
-          background: 'rgba(0, 0, 0, 0.5)',
-          borderRadius: '50%',
-          width: '40px',
-          height: '40px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          transition: 'background 0.3s'
-        }}
-        onMouseEnter={(e) => e.target.style.background = 'rgba(0, 0, 0, 0.5)'}
-        onMouseLeave={(e) => e.target.style.background = 'rgba(0, 0, 0, 0.0)'}
-      >
-        <Icon style={{ color: '#fff', fontSize: '18px' }} />
-      </div>
-    );
-  };  
+  const [activeIndex, setActiveIndex] = useState(0);
+  const slideCount = imageData.length;
+
+  const showPrevious = () => {
+    setActiveIndex((current) => (current + slideCount - 1) % slideCount);
+  };
+
+  const showNext = () => {
+    setActiveIndex((current) => (current + 1) % slideCount);
+  };
 
   if (!pixelsAbove || pixelsAbove < 0) {
     pixelsAbove = 0;
@@ -43,26 +20,61 @@ export const CarouselGenerator = ({ imageData, pixelsAbove, pixelsBelow }) => {
   }
 
   return (
-    <Flex
-      justify='space-between'
-      vertical={true}
-    >
+    <div className="cw-carousel-stack">
       <div style={{ height: `${pixelsAbove}px` }} />
-      <Carousel
-        // draggable // Image Preview Button prematurely triggers
-        arrows
-        prevArrow={<Arrow direction="left" />}
-        nextArrow={<Arrow direction="right" />}
-      >
-        {imageData.map(datum => {
-          return <Image
-            key={datum.src}
-            src={datum.src}
-          />;
+      <div className="cw-carousel">
+        {slideCount > 1 && (
+          <button
+            type="button"
+            className="cw-carousel-arrow cw-carousel-arrow--previous"
+            aria-label="Previous image"
+            onClick={showPrevious}
+          >
+            &lsaquo;
+          </button>
+        )}
+        {imageData.map((datum, index) => {
+          return (
+            <img
+              key={datum.src}
+              className="cw-carousel-image"
+              src={datum.src}
+              alt={datum.alt ?? ''}
+              hidden={index !== activeIndex}
+            />
+          );
         })}
-      </Carousel>
+        {slideCount > 1 && (
+          <button
+            type="button"
+            className="cw-carousel-arrow cw-carousel-arrow--next"
+            aria-label="Next image"
+            onClick={showNext}
+          >
+            &rsaquo;
+          </button>
+        )}
+      </div>
+      {slideCount > 1 && (
+        <div className="cw-carousel-dots" aria-label="Select image">
+          {imageData.map((datum, index) => (
+            <button
+              key={datum.src}
+              type="button"
+              className={
+                index === activeIndex
+                  ? 'cw-carousel-dot cw-carousel-dot--active'
+                  : 'cw-carousel-dot'
+              }
+              aria-label={`Show image ${index + 1}`}
+              aria-current={index === activeIndex}
+              onClick={() => setActiveIndex(index)}
+            />
+          ))}
+        </div>
+      )}
       <div style={{ height: `${pixelsBelow}px` }} />
-    </Flex>
+    </div>
   );
 };
 
@@ -81,23 +93,32 @@ export const TabbedCarouselGenerator = ({ tabMap, pixelsAbove, pixelsBelow }) =>
   }
 
   return (
-    <Flex
-      justify='space-between'
-      vertical={true}
-    >
+    <div className="cw-carousel-stack">
       <div style={{ height: `${pixelsAbove}px` }} />
-      <Card
-        tabList={
-          Object.entries(tabMap).map(([key, tab]) => {
-            return { key, label: tab.label };
-          })
-        }
-        activeTabKey={activeTabKey}
-        onTabChange={onTabChange}
-      >
-        {tabMap[activeTabKey].component}
-      </Card>
+      <div className="cw-tabbed-carousel">
+        <div className="cw-tabbed-carousel-tabs" role="tablist">
+          {Object.entries(tabMap).map(([key, tab]) => (
+            <button
+              key={key}
+              type="button"
+              className={
+                key === activeTabKey
+                  ? 'cw-tabbed-carousel-tab cw-tabbed-carousel-tab--active'
+                  : 'cw-tabbed-carousel-tab'
+              }
+              role="tab"
+              aria-selected={key === activeTabKey}
+              onClick={() => onTabChange(key)}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+        <div className="cw-tabbed-carousel-panel" role="tabpanel">
+          {tabMap[activeTabKey].component}
+        </div>
+      </div>
       <div style={{ height: `${pixelsBelow}px` }} />
-    </Flex>
+    </div>
   );
 };

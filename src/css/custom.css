@@ -141,3 +141,119 @@ html[data-theme="dark"] .header-github-link:before {
 .centered-text {
   text-align: center;
 }
+
+.cw-carousel-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cw-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cw-carousel-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cw-carousel-image[hidden] {
+  display: none;
+}
+
+.cw-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  font-size: 32px;
+  line-height: 1;
+  transform: translateY(-50%);
+  transition: background 0.3s;
+}
+
+.cw-carousel-arrow:hover,
+.cw-carousel-arrow:focus-visible {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.cw-carousel-arrow--previous {
+  left: 10px;
+}
+
+.cw-carousel-arrow--next {
+  right: 10px;
+}
+
+.cw-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.cw-carousel-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ifm-color-emphasis-400);
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.cw-carousel-dot--active {
+  opacity: 1;
+}
+
+.cw-tabbed-carousel {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-card-border-radius);
+  background: var(--ifm-card-background-color);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.cw-tabbed-carousel-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 12px 16px 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.cw-tabbed-carousel-tab {
+  padding: 8px 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--ifm-color-content-secondary);
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+.cw-tabbed-carousel-tab + .cw-tabbed-carousel-tab {
+  margin-left: 24px;
+}
+
+.cw-tabbed-carousel-tab--active {
+  border-bottom-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.cw-tabbed-carousel-panel {
+  padding: 24px;
+}
