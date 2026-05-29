@@ -18,7 +18,7 @@ const config = {
   scripts: [{
     src: "https://analytics.x266.mov/js/script.js",
     defer: true,
-    "data-domain": "wiki.x266.mov",
+    "data-domain": "codecs.wiki",
   }],
 
   // preload fonts
@@ -56,7 +56,7 @@ const config = {
   ],
 
   // Set the production url of your site here
-  url: "https://wiki.x266.mov",
+  url: "https://codecs.wiki",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -174,11 +174,11 @@ const config = {
             items: [
               {
                 label: "Prologue",
-                to: "https://wiki.x266.mov/docs/introduction/prologue",
+                to: "https://codecs.wiki/docs/introduction/prologue",
               },
               {
                 label: "AAC",
-                to: "https://wiki.x266.mov/docs/audio/AAC",
+                to: "https://codecs.wiki/docs/audio/AAC",
               },
             ],
           },
@@ -187,15 +187,15 @@ const config = {
             items: [
               {
                 label: "Vapoursynth",
-                href: "https://wiki.x266.mov/docs/filtering/Vapoursynth",
+                href: "https://codecs.wiki/docs/filtering/Vapoursynth",
               },
               {
                 label: "Deband",
-                href: "https://wiki.x266.mov/docs/filtering/deband",
+                href: "https://codecs.wiki/docs/filtering/deband",
               },
               {
                 label: "Denoise",
-                href: "https://wiki.x266.mov/docs/filtering/denoise",
+                href: "https://codecs.wiki/docs/filtering/denoise",
               },
             ],
           },
@@ -209,11 +209,11 @@ const config = {
               },
               {
                 label: "Terms of Use",
-                href: "https://wiki.x266.mov/docs/terms-of-use",
+                href: "https://codecs.wiki/docs/terms-of-use",
               },
               {
                 label: "Privacy Policy",
-                href: "https://wiki.x266.mov/docs/privacy-policy",
+                href: "https://codecs.wiki/docs/privacy-policy",
               },
             ],
           },

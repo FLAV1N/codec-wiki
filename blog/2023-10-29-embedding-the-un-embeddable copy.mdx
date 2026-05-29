@@ -89,7 +89,7 @@ After a combination of countless hours of observation, rigorous testing througho
 
 #### Strengths
 
-- You can embed non-web compatible codecs such as [HEVC](https://wiki.x266.mov/docs/video/HEVC) in [MP4/MOV](https://wiki.x266.mov/docs/introduction/terminology#mp4--m4v), but the user must be using a compatible browser. [Thorium](https://thorium.rocks) or Safari version 13 or greater will work for HEVC playback.
+- You can embed non-web compatible codecs such as [HEVC](https://codecs.wiki/docs/video/HEVC) in [MP4/MOV](https://codecs.wiki/docs/introduction/terminology#mp4--m4v), but the user must be using a compatible browser. [Thorium](https://thorium.rocks) or Safari version 13 or greater will work for HEVC playback.
 - There is no maximum size. You could embed a video the size of a raw Bluray, although I do not condone this unless you have the necessary legal permissions to do so or you're uploading a Creative Commons licensed movie like Big Buck Bunny while adhering to the restrictions of the applicable Creative Commons license. This also means you can send high bitrate gaming clips to your friends without any restrictions, assuming you already have a place to upload them.
 
 #### Limitations
@@ -123,9 +123,9 @@ In around April of 2022, a Reddit user going by the name of u/CreativeGamer03 [p
 The link used is now unfortunately [removed](https://archuser.de/the-rock).
 
 ### Discovery
-On 23rd June 2022, a Discord user *Clybius* on the AV1 Community server asked people for [VP9](https://wiki.x266.mov/docs/video/VP9) or [H.264](https://wiki.x266.mov/docs/video/AVC) videos that were over 100 MB in size. At the time the current 500 MB nitro tier did not exist. They then decided to use a 59 minute 1080p sample video of nature scenery from around the world with a thumbnail featuring a GIF of a waterfall to test the exploit. It worked.
+On 23rd June 2022, a Discord user *Clybius* on the AV1 Community server asked people for [VP9](https://codecs.wiki/docs/video/VP9) or [H.264](https://codecs.wiki/docs/video/AVC) videos that were over 100 MB in size. At the time the current 500 MB nitro tier did not exist. They then decided to use a 59 minute 1080p sample video of nature scenery from around the world with a thumbnail featuring a GIF of a waterfall to test the exploit. It worked.
 
-He tried shortly afterward with [AV1](https://wiki.x266.mov/docs/video/AV1). Eureka, it also worked:
+He tried shortly afterward with [AV1](https://codecs.wiki/docs/video/AV1). Eureka, it also worked:
 
 ![AV1](/img/clybius-av1.webp)
 
@@ -135,9 +135,9 @@ Clybius confirmed that this could be patched if discovered. He cites having had 
 
 ### The Experiments & Interactive Site
 
-After the discovery of AV1 embedding, experimentation brought about the discovery that *any* video codec will work as long as the user can decode/play the codec and the container/extension is an MP4, MOV, or WebM. These are all traditionally web-compatible containers. If you're interested in learning about containers, please see the [Containers](https://wiki.x266.mov/docs/introduction/terminology#container) section on the [Terminology](https://wiki.x266.mov/docs/introduction/terminology) page.
+After the discovery of AV1 embedding, experimentation brought about the discovery that *any* video codec will work as long as the user can decode/play the codec and the container/extension is an MP4, MOV, or WebM. These are all traditionally web-compatible containers. If you're interested in learning about containers, please see the [Containers](https://codecs.wiki/docs/introduction/terminology#container) section on the [Terminology](https://codecs.wiki/docs/introduction/terminology) page.
 
-This applies to HEVC, ProRes, [xHE-AAC](https://wiki.x266.mov/docs/audio/AAC#xhe-aac), and other bizarre codecs that are rarely seen on the Web.
+This applies to HEVC, ProRes, [xHE-AAC](https://codecs.wiki/docs/audio/AAC#xhe-aac), and other bizarre codecs that are rarely seen on the Web.
 
 While experimentating, Clybius converted one their idle domains `stolen.shoes` into an interactive embedder that provided a textbox for a video URL, a thumbnail URL, a width value, & a height value for the desired video. This would be the first website for Discord embedding.
 
@@ -157,7 +157,7 @@ It's not long before people outside of the AV1 Community discovered `stolen.shoe
 
 ![fnaf](/img/discordnfpis-fnaf.webp)
 
-Note the ones listed here are the ones that I saw become extremely popular. There may be lesser known links that have been spread around privately or just did not cause enough noise for me to notice. Some less popular examples I've noticed, featuring more illicit copyrighted content distribution: 
+Note the ones listed here are the ones that I saw become extremely popular. There may be lesser known links that have been spread around privately or just did not cause enough noise for me to notice. Some less popular examples I've noticed, featuring more illicit copyrighted content distribution:
 - Top Gun Maverick (2022)
 - The SpongeBob trilogy (2005/2015/2020)
 - Spider-Man: Across the Spider-Verse (2023)

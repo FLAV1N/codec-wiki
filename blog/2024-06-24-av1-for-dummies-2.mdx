@@ -16,7 +16,7 @@ AV1 for Dummies is a comprehensive, legible guide on how to get started with AV1
 
 ## Introduction
 
-[AV1](https://wiki.x266.mov/docs/video/AV1) is a royalty-free video codec developed by the Alliance for Open Media. It is designed to replace [VP9](https://wiki.x266.mov/docs/video/VP9) and presently competes with [H.266](https://wiki.x266.mov/docs/video/VVC). AV1 is known for its high compression efficiency, which the marketing will have you believe reduces file sizes by up to 50% compared to [H.264](https://wiki.x266.mov/docs/video/AVC) and up to 30% compared to [H.265](https://wiki.x266.mov/docs/video/HEVC) across the board. It is supported by several major browsers and is widely used across many streaming services and video platforms.
+[AV1](https://codecs.wiki/docs/video/AV1) is a royalty-free video codec developed by the Alliance for Open Media. It is designed to replace [VP9](https://codecs.wiki/docs/video/VP9) and presently competes with [H.266](https://codecs.wiki/docs/video/VVC). AV1 is known for its high compression efficiency, which the marketing will have you believe reduces file sizes by up to 50% compared to [H.264](https://codecs.wiki/docs/video/AVC) and up to 30% compared to [H.265](https://codecs.wiki/docs/video/HEVC) across the board. It is supported by several major browsers and is widely used across many streaming services and video platforms.
 
 ### Why AV1?
 
@@ -26,7 +26,7 @@ Before we dive in, it is important to understand *why* you may want to use AV1 i
 - Encoding content with very little grain or noise
 - Slow, non-realtime contexts (e.g. offline encoding)
 
-The enumeration above still consists of broad strokes, but the point is to understand that AV1 is not a silver bullet. It will not automatically make your videos smaller while preserving your desired quality. To make things more difficult, the [x264](https://wiki.x266.mov/docs/encoders/x264) & [x265](https://wiki.x266.mov/docs/encoders/x265) encoders are very mature, while AV1 encoding efforts designed to meet the extremely complicated needs of the human eye are still in their infancy.
+The enumeration above still consists of broad strokes, but the point is to understand that AV1 is not a silver bullet. It will not automatically make your videos smaller while preserving your desired quality. To make things more difficult, the [x264](https://codecs.wiki/docs/encoders/x264) & [x265](https://codecs.wiki/docs/encoders/x265) encoders are very mature, while AV1 encoding efforts designed to meet the extremely complicated needs of the human eye are still in their infancy.
 
 This guide focuses almost entirely on tools great for offline, non-realtime encoding for various kinds of content. Streaming is an altogether different application of AV1, and is only covered sparsely here.
 
@@ -39,7 +39,7 @@ Due to a lot of misunderstandings about codecs and compression, there are a lot 
 - **Don't** assume that higher bitrate equates to better quality. Inefficient encoding can waste bits without improving visual quality, and efficient encoding can make lower bitrate video look drastically better than higher bitrate video using the same codec.
 - **Don't** assume all encoders/presets/settings/implementations are created equal. Even given two encoding frameworks that use the same underlying encoder, you may achieve different results given encoder version mismatches or subtly different settings used under the hood.
 - **Don't** use unnecessarily slow presets/speeds unless you have a specific need and ample time. While slower presets improve encoding efficiency most of the time, the quality gains reach a point of diminishing returns beyond a certain point. Use the slowest preset you can tolerate, not the slowest preset available.
-- **Don't** blindly trust metric scores. It is unfortunate how trusted [VMAF](https://wiki.x266.mov/docs/metrics/VMAF) is considering how infrequently it correlates with visual fidelity in practice now that it has become so popular. Even the beloved [SSIMULACRA2](https://wiki.x266.mov/docs/metrics/SSIMULACRA2) is not a perfect one-to-one with the human eye.
+- **Don't** blindly trust metric scores. It is unfortunate how trusted [VMAF](https://codecs.wiki/docs/metrics/VMAF) is considering how infrequently it correlates with visual fidelity in practice now that it has become so popular. Even the beloved [SSIMULACRA2](https://codecs.wiki/docs/metrics/SSIMULACRA2) is not a perfect one-to-one with the human eye.
 
 Now, let's move on to some **good** practices:
 - Experiment with different settings and compare the results.
@@ -56,21 +56,21 @@ Since writing the last guide, there are now several versatile tools available fo
 ### GUI
 
 Here's the key:
-- **Encoder(s)**: The AV1 encoder(s) the software uses or is able to use. This is between [SVT-AV1](https://wiki.x266.mov/docs/encoders/SVT-AV1), [aomenc](https://wiki.x266.mov/docs/encoders/aomenc), [rav1e](https://wiki.x266.mov/docs/encoders/rav1e), [SVT-AV1-PSY](https://wiki.x266.mov/docs/encoders/SVT-AV1-PSY), and various aomenc forks. We'll get into this more later.
+- **Encoder(s)**: The AV1 encoder(s) the software uses or is able to use. This is between [SVT-AV1](https://codecs.wiki/docs/encoders/SVT-AV1), [aomenc](https://codecs.wiki/docs/encoders/aomenc), [rav1e](https://codecs.wiki/docs/encoders/rav1e), [SVT-AV1-PSY](https://codecs.wiki/docs/encoders/SVT-AV1-PSY), and various aomenc forks. We'll get into this more later.
 - **Ease of Use**: How intuitive the software is, especially for beginners.
 - **Complexity**: How flexible the software can be for advanced users.
 - **Efficiency**: How "good" the underlying encoder(s) are. This is more subjective, but tools with bad defaults, misleading options, or slow release cycles won't score well here.
 
 | Name    | Platform(s) | Encoder(s) | Ease of Use | Complexity | Efficiency  |
 |---------|-------------|:----------:|:-----------:|:-----------:|------------|
-| [Aviator](https://wiki.x266.mov/docs/utilities/Aviator) | Linux       | SVT-AV1-PSY| ●●●●●       | ●○○○○         | ●●●●●     |
-| [NMKODER](https://wiki.x266.mov/docs/utilities/nmkoder) | Windows     | Any        | ●●●○○       | ●●●●○         | ●●○○○     |
+| [Aviator](https://codecs.wiki/docs/utilities/Aviator) | Linux       | SVT-AV1-PSY| ●●●●●       | ●○○○○         | ●●●●●     |
+| [NMKODER](https://codecs.wiki/docs/utilities/nmkoder) | Windows     | Any        | ●●●○○       | ●●●●○         | ●●○○○     |
 | [Av1ation Station](https://github.com/Av1ation-Association/Av1ation-Creations/releases/) | Any | Any       | ●●●○○       | ●●●●●         | ●●●●○     |
 | [StaxRip](https://github.com/staxrip/staxrip) | Windows     | Any        | ●●○○○       | ●●●●●         | ●●●●○     |
 | [NEAV1E](https://github.com/Alkl58/NotEnoughAV1Encodes) | Windows | Any | ●●●○○      | ●●●○○         | ●●○○○     |
 | [Handbrake](https://handbrake.fr/) | Any       | SVT-AV1     | ●●●●○      | ●●○○○         | ●●○○○     |
 | [FastFlix](https://github.com/cdgriffith/FastFlix)  | Any       | Any         | ●●●●○      | ●●●○○         | ●●○○○     |
-| [rAV1ator](https://wiki.x266.mov/docs/utilities/rav1ator)  | Linux     | rav1e       | ●●●●○      | ●●●○○         | ●○○○○     |
+| [rAV1ator](https://codecs.wiki/docs/utilities/rav1ator)  | Linux     | rav1e       | ●●●●○      | ●●●○○         | ●○○○○     |
 | [Autocompressor](https://autocompressor.net/) | Web  | SVT-AV1     | ●●●●●      | ●○○○○         | ●●●○○     |
 
 Our top pics are:
@@ -86,9 +86,9 @@ In the terminal, advanced encoders can explore a much greater degree of complexi
 | Name | Framework(s) | Ease of Use | Complexity | Features | Scene Detection |
 |------|--------------|:-----------:|:----------:|:--------:|:---------------:|
 | SvtAv1EncApp | None | ●○○○○ | ●●○○○ | ●○○○○ | No |
-| [FFmpeg](https://wiki.x266.mov/docs/utilities/ffmpeg) | Itself | ●●○○○ | ●●●●● | ●●●●○ | No |
-| [Av1an](https://wiki.x266.mov/docs/utilities/av1an) | FFmpeg | ●○○○○ | ●●●●● | ●●●○○ | Yes |
-| [rAV1ator CLI](https://wiki.x266.mov/docs/utilities/rav1ator-cli) | Av1an | ●●●●○ | ●●●●○ | ●●●●○ | Yes |
+| [FFmpeg](https://codecs.wiki/docs/utilities/ffmpeg) | Itself | ●●○○○ | ●●●●● | ●●●●○ | No |
+| [Av1an](https://codecs.wiki/docs/utilities/av1an) | FFmpeg | ●○○○○ | ●●●●● | ●●●○○ | Yes |
+| [rAV1ator CLI](https://codecs.wiki/docs/utilities/rav1ator-cli) | Av1an | ●●●●○ | ●●●●○ | ●●●●○ | Yes |
 | [alabamaEncoder](https://github.com/kingstefan26/alabamaEncoder) | FFmpeg | ●●○○○ | ●●●●● | ●●●●● | Yes |
 
 Our top picks are:
@@ -111,10 +111,10 @@ Understanding these encoders is crucial for making informed decisions about what
 
 ### SVT-AV1
 
-[SVT-AV1](https://wiki.x266.mov/docs/encoders/SVT-AV1) (Scalable Video Technology for AV1) is an AV1 encoder library and application developed by Intel, Netflix, and others. It has gained significant popularity in the encoding community due to its impressive balance of speed, quality, and scalability.
+[SVT-AV1](https://codecs.wiki/docs/encoders/SVT-AV1) (Scalable Video Technology for AV1) is an AV1 encoder library and application developed by Intel, Netflix, and others. It has gained significant popularity in the encoding community due to its impressive balance of speed, quality, and scalability.
 
 Links:
-- Wiki page: [SVT-AV1](https://wiki.x266.mov/docs/encoders/SVT-AV1)
+- Wiki page: [SVT-AV1](https://codecs.wiki/docs/encoders/SVT-AV1)
 - Git repository: https://gitlab.com/AOMediaCodec/SVT-AV1
 - Documentation: https://gitlab.com/AOMediaCodec/SVT-AV1/-/blob/master/Docs/README.md
 
@@ -148,10 +148,10 @@ Some downsides include:
 
 ### rav1e
 
-[rav1e](https://wiki.x266.mov/docs/encoders/rav1e) is an AV1 encoder written in Rust & Assembly. Developed by the open-source community alongside Xiph, it brings a unique approach to AV1 encoding with its focus on safety and correctness.
+[rav1e](https://codecs.wiki/docs/encoders/rav1e) is an AV1 encoder written in Rust & Assembly. Developed by the open-source community alongside Xiph, it brings a unique approach to AV1 encoding with its focus on safety and correctness.
 
 Links:
-- Wiki page: [rav1e](https://wiki.x266.mov/docs/encoders/rav1e)
+- Wiki page: [rav1e](https://codecs.wiki/docs/encoders/rav1e)
 - Git repository: https://github.com/xiph/rav1e
 - Documentation: https://github.com/xiph/rav1e/tree/master/doc#readme
 
@@ -183,10 +183,10 @@ Some limitations of rav1e include:
 
 ### aomenc (libaom)
 
-[aomenc](https://wiki.x266.mov/docs/encoders/aomenc), based on the libaom library, is the reference encoder for AV1. Developed by the Alliance for Open Media (AOM), it is the benchmark for AV1 encoding quality and compliance.
+[aomenc](https://codecs.wiki/docs/encoders/aomenc), based on the libaom library, is the reference encoder for AV1. Developed by the Alliance for Open Media (AOM), it is the benchmark for AV1 encoding quality and compliance.
 
 Links:
-- Wiki page: [aomenc](https://wiki.x266.mov/docs/encoders/aomenc)
+- Wiki page: [aomenc](https://codecs.wiki/docs/encoders/aomenc)
 - Git repository: https://aomedia.googlesource.com/aom/
 
 1. **Encoding Quality**
@@ -221,10 +221,10 @@ Some drawbacks of aomenc include:
 
 ### SVT-AV1-PSY
 
-[SVT-AV1-PSY](https://wiki.x266.mov/docs/encoders/svt-av1-psy) is a community fork of the SVT-AV1 encoder focused on psychovisual optimizations to enhance perceived visual quality. It aims at closing the distance between SVT-AV1's high speeds and the perceptual quality of aomenc's slow brute force approach.
+[SVT-AV1-PSY](https://codecs.wiki/docs/encoders/svt-av1-psy) is a community fork of the SVT-AV1 encoder focused on psychovisual optimizations to enhance perceived visual quality. It aims at closing the distance between SVT-AV1's high speeds and the perceptual quality of aomenc's slow brute force approach.
 
 Links:
-- Wiki page: [SVT-AV1-PSY](https://wiki.x266.mov/docs/encoders/svt-av1-psy)
+- Wiki page: [SVT-AV1-PSY](https://codecs.wiki/docs/encoders/svt-av1-psy)
 - Git repository: https://github.com/gianni-rosato/svt-av1-psy
 - Documentation: https://github.com/gianni-rosato/svt-av1-psy/blob/master/Docs/PSY-Development.md
 

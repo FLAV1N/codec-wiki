@@ -13,12 +13,12 @@ This guide will show you how to encode in AV1 the *right* and *optimal* way. Yes
 <!--truncate-->
 
 :::danger Outdated Information
-While a lot of the information presented in this guide is still relevant and correct, the AV1 ecosystem has changed dramatically since this guide's inception which has demanded a rewrite. Please see the [AV1 for Dummies](https://wiki.x266.mov/blog/av1-for-dummies) blog post for more information.
+While a lot of the information presented in this guide is still relevant and correct, the AV1 ecosystem has changed dramatically since this guide's inception which has demanded a rewrite. Please see the [AV1 for Dummies](https://codecs.wiki/blog/av1-for-dummies) blog post for more information.
 :::
 
 ![Compare](/img/compare-guide.webp)
 
-In this guide, we'll be installing Av1an for chunked encoding and infinite threading, because the current state of AV1 encoders, except for [SVT-AV1](https://wiki.x266.mov/docs/encoders/SVT-AV1), unfortunately lacks threading and will only use very low amount of cores, which hampers speeds. The only caveat to this approach is **RAM consumption**, encoding 2160p (4K) with [aomenc](https://wiki.x266.mov/docs/encoders/aomenc) with 4 workers could take upwards of **16GB** of RAM! So do keep this in mind.
+In this guide, we'll be installing Av1an for chunked encoding and infinite threading, because the current state of AV1 encoders, except for [SVT-AV1](https://codecs.wiki/docs/encoders/SVT-AV1), unfortunately lacks threading and will only use very low amount of cores, which hampers speeds. The only caveat to this approach is **RAM consumption**, encoding 2160p (4K) with [aomenc](https://codecs.wiki/docs/encoders/aomenc) with 4 workers could take upwards of **16GB** of RAM! So do keep this in mind.
 
 ## Installing the Tools
 
@@ -42,7 +42,7 @@ Since Nmkoder already ships everything by default and its last release was 29th 
 
 If you're not already familiar with WSL2, the The Windows Subsystem for Linux (WSL) is a feature of the Windows operating system that allows you to run a Linux file system, along with Linux command-line tools and GUI apps, directly on Windows. This lets Linux distributions run on bare metal without managing any virtual machines, so encoding performance is very good.
 
-The easiest way to encode with WSL2 is to use [rAV1ator CLI](https://wiki.x266.mov/docs/utilities/rav1ator-cli), an interactive TUI for [Av1an](https://wiki.x266.mov/docs/utilities/av1an). An ArchWSL2 installation tutorial is provided [here](https://wiki.x266.mov/docs/utilities/rav1ator-cli#windows).
+The easiest way to encode with WSL2 is to use [rAV1ator CLI](https://codecs.wiki/docs/utilities/rav1ator-cli), an interactive TUI for [Av1an](https://codecs.wiki/docs/utilities/av1an). An ArchWSL2 installation tutorial is provided [here](https://codecs.wiki/docs/utilities/rav1ator-cli#windows).
 
 ### The Automated Way
 
@@ -64,7 +64,7 @@ The script will download outdated version encoders and tools such as `aom-av1-ps
 6. Download **shared libraries** FFmpeg from [gyan.dev](https://www.gyan.dev/ffmpeg/builds)
 7. Download a pre-built fork of Aomenc ([aom-av1-lavish](https://github.com/Clybius/aom-av1-lavish/tree/Endless_Merging)) which has neat stuff such as sane defaults, new tunes, optimizations, etc. This can be downloaded for Windows [here](https://autumn.revolt.chat/attachments/download/-2EiZW1edcT9anApFZ1PJBEber-pJ6z02NiQBjbr28) *(Current as of Sept 6, 2023)*
 :::info
-If you opt to compile aomenc yourself, you can view the instructions on how to do that [here](https://wiki.x266.mov/docs/encoders/aomenc/#installation).
+If you opt to compile aomenc yourself, you can view the instructions on how to do that [here](https://codecs.wiki/docs/encoders/aomenc/#installation).
 :::
 8. Move Av1an, FFmpeg **(Including the FFmpeg DLLs)**, and aomenc to somewhere preferable, eg ``C:\Encoding``.
 9. Add the folder **AND MKVTOOLNIX INSTALLATION FOLDER** to the [Windows PATH environment](https://www.maketecheasier.com/what-is-the-windows-path/).
@@ -190,13 +190,13 @@ Yet again, try using Arch. It's way easier.
 
 ### The GUI Way
 
-- Install [Aviator](https://github.com/gianni-rosato/aviator) ([SVT-AV1](https://wiki.x266.mov/docs/encoders/SVT-AV1) + [FFmpeg](https://wiki.x266.mov/docs/utilities/FFmpeg)) or [rAV1ator](https://giannirosato.com/blog/post/aviator-1/) basically same thing but [Av1an](https://wiki.x266.mov/docs/utilities/av1an.mdx) + [rav1e](https://wiki.x266.mov/docs/encoders/rav1e). Both are only available as [Flatpaks](https://beta.flathub.org/apps/net.natesales.Aviator). Keep in mind Aviator ships with **SVT-AV1** and rAV1ator with **rav1e** instead of aomenc/AOM-AV1, which I will not be covering here.
+- Install [Aviator](https://github.com/gianni-rosato/aviator) ([SVT-AV1](https://codecs.wiki/docs/encoders/SVT-AV1) + [FFmpeg](https://codecs.wiki/docs/utilities/FFmpeg)) or [rAV1ator](https://giannirosato.com/blog/post/aviator-1/) basically same thing but [Av1an](https://codecs.wiki/docs/utilities/av1an.mdx) + [rav1e](https://codecs.wiki/docs/encoders/rav1e). Both are only available as [Flatpaks](https://beta.flathub.org/apps/net.natesales.Aviator). Keep in mind Aviator ships with **SVT-AV1** and rAV1ator with **rav1e** instead of aomenc/AOM-AV1, which I will not be covering here.
 
 ### The TUI Way
 
 *(Recommended)*
 
-- Install [rav1ator-cli](https://wiki.x266.mov/docs/utilities/rav1ator-cli), a TUI for using Av1an meant to be easy to use. Much more flexible than the GUI options & can work with a number of encoders. See [this page](https://wiki.x266.mov/docs/utilities/rav1ator-cli/#installation) for more info. Can be easily used on any distro.
+- Install [rav1ator-cli](https://codecs.wiki/docs/utilities/rav1ator-cli), a TUI for using Av1an meant to be easy to use. Much more flexible than the GUI options & can work with a number of encoders. See [this page](https://codecs.wiki/docs/utilities/rav1ator-cli/#installation) for more info. Can be easily used on any distro.
 
 ### The Compiling Route
 
