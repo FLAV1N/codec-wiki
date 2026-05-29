@@ -14,13 +14,7 @@ const config = {
   title: "Codec Wiki",
   tagline: "Your Guide to All Things Encoding",
   favicon: "img/favicon.svg",
-  // analytics
-  scripts: [{
-    src: "https://analytics.x266.mov/js/script.js",
-    defer: true,
-    "data-domain": "codecs.wiki",
-  }],
-
+  
   // preload fonts
   headTags: [
     {
@@ -187,7 +181,7 @@ const config = {
             items: [
               {
                 label: "Vapoursynth",
-                href: "https://codecs.wiki/docs/filtering/Vapoursynth",
+                href: "https://codecs.wiki/docs/filtering/vapoursynth",
               },
               {
                 label: "Deband",
